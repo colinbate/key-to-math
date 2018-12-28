@@ -1,11 +1,12 @@
 import { html } from 'https://unpkg.com/htm/preact/standalone.mjs';
 
 export const Button = ({label, onPush}) => html`
-  <button type="button" class="mx-2 p-4 rounded-lg bg-white shadow-btn font-sans text-3xl min-h-button min-w-button" onClick=${() => console.log('click') || onPush()}>${label}</button>
+  <button type="button" class="mx-2 p-4 rounded-lg bg-white shadow-btn font-sans text-3xl min-h-button min-w-button focus:outline-none" onClick=${onPush}>${label}</button>
 `;
 
 export const NumberPad = ({onPress}) => html`
-  <div class="pin-b fixed flex flex-col w-full justify-around pb-4">
+  <div class="pin-b fixed w-full flex">
+  <div class="flex flex-col justify-around pb-4 mx-auto">
     <div class="inline-block">
       <${Button} label="1" onPush=${() => onPress(1)} />
       <${Button} label="2" onPush=${() => onPress(2)} />
@@ -23,6 +24,7 @@ export const NumberPad = ({onPress}) => html`
       <${Button} label="9" onPush=${() => onPress(9)} />
       <${Button} label="0" onPush=${() => onPress(0)} />
     </div>
+  </div>
   </div>
 `;
 

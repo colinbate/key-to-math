@@ -4,6 +4,7 @@
   "description": "A game to teach basic arithmetic",
   "main": "index.js",
   "scripts": {
+    "start": "serve -p 3000",
     "css": "tailwind build style.css -c tailwind.js -o key.css"
   },
   "repository": {
@@ -18,6 +19,7 @@
   },
   "homepage": "https://github.com/colinbate/key-to-math#readme",
   "devDependencies": {
+    "serve": "^10.1.1",
     "tailwindcss": "^0.7.3"
   }
 }
