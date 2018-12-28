@@ -1,0 +1,23 @@
+{
+  "name": "key-to-math",
+  "version": "1.0.0",
+  "description": "A game to teach basic arithmetic",
+  "main": "index.js",
+  "scripts": {
+    "css": "tailwind build style.css -c tailwind.js -o key.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/colinbate/key-to-math.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/colinbate/key-to-math/issues"
+  },
+  "homepage": "https://github.com/colinbate/key-to-math#readme",
+  "devDependencies": {
+    "tailwindcss": "^0.7.3"
+  }
+}

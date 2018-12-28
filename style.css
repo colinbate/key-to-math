@@ -1,0 +1,7 @@
+@tailwind preflight;
+@tailwind components;
+@tailwind utilities;
+
+.app-bg {
+  background: linear-gradient(0deg, rgba(255,166,196,1) 0%, rgba(164,217,217,1) 100%);
+}

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" class="app-bg h-screen">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Unlock Math</title>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa|Major+Mono+Display|Roboto+Condensed" rel="stylesheet"> 
+    <link rel="stylesheet" href="key.css">
+  </head>
+  <body class="m-0 p-0 h-screen">
+  <script type="module">
+    import { html, render } from 'https://unpkg.com/htm/preact/standalone.mjs';
+    import { Game } from './src/Game.js';
+    render(html`<${Game}><//>`, document.body);
+  </script>
+  </body>
+</html>
