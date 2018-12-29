@@ -7,6 +7,6 @@ export const Equation = ({a, b, op, answer}) => html`
       <span class="op">${op}</span><span class="b">${b}</span>
     </div>
     <div class="px-3 hidden">=</div>
-    <div class="px-3">${answer}</div>
+    <div class="px-3">${answer || '​'}</div>
   </div>
 `;

@@ -4289,6 +4289,10 @@ table {
   padding: 1px;
 }
 
+.p-xxl {
+  padding: 18rem;
+}
+
 .py-0 {
   padding-top: 0;
   padding-bottom: 0;
@@ -4437,6 +4441,16 @@ table {
 .px-px {
   padding-left: 1px;
   padding-right: 1px;
+}
+
+.py-xxl {
+  padding-top: 18rem;
+  padding-bottom: 18rem;
+}
+
+.px-xxl {
+  padding-left: 18rem;
+  padding-right: 18rem;
 }
 
 .pt-0 {
@@ -4677,6 +4691,22 @@ table {
 
 .pl-px {
   padding-left: 1px;
+}
+
+.pt-xxl {
+  padding-top: 18rem;
+}
+
+.pr-xxl {
+  padding-right: 18rem;
+}
+
+.pb-xxl {
+  padding-bottom: 18rem;
+}
+
+.pl-xxl {
+  padding-left: 18rem;
 }
 
 .pointer-events-none {
@@ -6176,6 +6206,89 @@ table {
 
 .app-bg {
   background: linear-gradient(0deg, rgba(255, 166, 196, 1) 0%, rgba(164, 217, 217, 1) 100%);
+}
+
+.transy-0 {
+  -webkit-transform: translate3d(0, 100%, 0);
+          transform: translate3d(0, 100%, 0);
+}
+
+.transy-1 {
+  -webkit-transform: translate3d(0, 75%, 0);
+          transform: translate3d(0, 75%, 0);
+}
+
+.transy-2 {
+  -webkit-transform: translate3d(0, 50%, 0);
+          transform: translate3d(0, 50%, 0);
+}
+
+.transy-3 {
+  -webkit-transform: translate3d(0, 25%, 0);
+          transform: translate3d(0, 25%, 0);
+}
+
+.transy-4 {
+  -webkit-transform: translate3d(0, 0%, 0);
+          transform: translate3d(0, 0%, 0);
+}
+
+.ease-transform {
+  transition: -webkit-transform .6s ease-in-out;
+  transition: transform .6s ease-in-out;
+  transition: transform .6s ease-in-out, -webkit-transform .6s ease-in-out;
+}
+
+.run-animation .circle {
+  -webkit-animation: 1.75s circleDraw forwards;
+          animation: 1.75s circleDraw forwards;
+}
+
+.run-animation .checkmark {
+  -webkit-animation: .75s checkmarkDraw forwards;
+          animation: .75s checkmarkDraw forwards;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+
+@-webkit-keyframes circleDraw {
+  from {
+    stroke-dashoffset: 700;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes circleDraw {
+  from {
+    stroke-dashoffset: 700;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@-webkit-keyframes checkmarkDraw {
+  from {
+    stroke-dashoffset: 150;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes checkmarkDraw {
+  from {
+    stroke-dashoffset: 150;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
 @media (min-width: 576px) {
@@ -9922,6 +10035,10 @@ table {
     padding: 1px;
   }
 
+  .sm\:p-xxl {
+    padding: 18rem;
+  }
+
   .sm\:py-0 {
     padding-top: 0;
     padding-bottom: 0;
@@ -10070,6 +10187,16 @@ table {
   .sm\:px-px {
     padding-left: 1px;
     padding-right: 1px;
+  }
+
+  .sm\:py-xxl {
+    padding-top: 18rem;
+    padding-bottom: 18rem;
+  }
+
+  .sm\:px-xxl {
+    padding-left: 18rem;
+    padding-right: 18rem;
   }
 
   .sm\:pt-0 {
@@ -10310,6 +10437,22 @@ table {
 
   .sm\:pl-px {
     padding-left: 1px;
+  }
+
+  .sm\:pt-xxl {
+    padding-top: 18rem;
+  }
+
+  .sm\:pr-xxl {
+    padding-right: 18rem;
+  }
+
+  .sm\:pb-xxl {
+    padding-bottom: 18rem;
+  }
+
+  .sm\:pl-xxl {
+    padding-left: 18rem;
   }
 
   .sm\:pointer-events-none {
@@ -15544,6 +15687,10 @@ table {
     padding: 1px;
   }
 
+  .md\:p-xxl {
+    padding: 18rem;
+  }
+
   .md\:py-0 {
     padding-top: 0;
     padding-bottom: 0;
@@ -15692,6 +15839,16 @@ table {
   .md\:px-px {
     padding-left: 1px;
     padding-right: 1px;
+  }
+
+  .md\:py-xxl {
+    padding-top: 18rem;
+    padding-bottom: 18rem;
+  }
+
+  .md\:px-xxl {
+    padding-left: 18rem;
+    padding-right: 18rem;
   }
 
   .md\:pt-0 {
@@ -15932,6 +16089,22 @@ table {
 
   .md\:pl-px {
     padding-left: 1px;
+  }
+
+  .md\:pt-xxl {
+    padding-top: 18rem;
+  }
+
+  .md\:pr-xxl {
+    padding-right: 18rem;
+  }
+
+  .md\:pb-xxl {
+    padding-bottom: 18rem;
+  }
+
+  .md\:pl-xxl {
+    padding-left: 18rem;
   }
 
   .md\:pointer-events-none {
@@ -21166,6 +21339,10 @@ table {
     padding: 1px;
   }
 
+  .lg\:p-xxl {
+    padding: 18rem;
+  }
+
   .lg\:py-0 {
     padding-top: 0;
     padding-bottom: 0;
@@ -21314,6 +21491,16 @@ table {
   .lg\:px-px {
     padding-left: 1px;
     padding-right: 1px;
+  }
+
+  .lg\:py-xxl {
+    padding-top: 18rem;
+    padding-bottom: 18rem;
+  }
+
+  .lg\:px-xxl {
+    padding-left: 18rem;
+    padding-right: 18rem;
   }
 
   .lg\:pt-0 {
@@ -21554,6 +21741,22 @@ table {
 
   .lg\:pl-px {
     padding-left: 1px;
+  }
+
+  .lg\:pt-xxl {
+    padding-top: 18rem;
+  }
+
+  .lg\:pr-xxl {
+    padding-right: 18rem;
+  }
+
+  .lg\:pb-xxl {
+    padding-bottom: 18rem;
+  }
+
+  .lg\:pl-xxl {
+    padding-left: 18rem;
   }
 
   .lg\:pointer-events-none {
@@ -26788,6 +26991,10 @@ table {
     padding: 1px;
   }
 
+  .xl\:p-xxl {
+    padding: 18rem;
+  }
+
   .xl\:py-0 {
     padding-top: 0;
     padding-bottom: 0;
@@ -26936,6 +27143,16 @@ table {
   .xl\:px-px {
     padding-left: 1px;
     padding-right: 1px;
+  }
+
+  .xl\:py-xxl {
+    padding-top: 18rem;
+    padding-bottom: 18rem;
+  }
+
+  .xl\:px-xxl {
+    padding-left: 18rem;
+    padding-right: 18rem;
   }
 
   .xl\:pt-0 {
@@ -27176,6 +27393,22 @@ table {
 
   .xl\:pl-px {
     padding-left: 1px;
+  }
+
+  .xl\:pt-xxl {
+    padding-top: 18rem;
+  }
+
+  .xl\:pr-xxl {
+    padding-right: 18rem;
+  }
+
+  .xl\:pb-xxl {
+    padding-bottom: 18rem;
+  }
+
+  .xl\:pl-xxl {
+    padding-left: 18rem;
   }
 
   .xl\:pointer-events-none {
