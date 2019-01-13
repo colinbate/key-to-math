@@ -1,7 +1,8 @@
 import { html } from 'https://unpkg.com/htm/preact/standalone.mjs';
 
 const cMap = {
-  missing: '#ccc'
+  missing: '#ccc',
+  rainbow: 'url(#rainbow)'
 };
 
 export const Key = ({color}) => html`
