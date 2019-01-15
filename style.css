@@ -10,6 +10,10 @@
   -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 
+.no-tapflash {
+  -webkit-tap-highlight-color: transparent;
+}
+
 .shake {
   animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
   transform: translate3d(0, 0, 0);
@@ -82,5 +86,63 @@
 
   40%, 60% {
     transform: translate3d(4px, 0, 0);
+  }
+}
+
+@keyframes tada {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  10%,
+  20% {
+    transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+  }
+
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+  }
+
+  40%,
+  60%,
+  80% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.tada {
+  animation-name: tada;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.tada-show {
+  opacity: 1;
+}
+
+.tada-hide {
+  opacity: 0;
+  transform: scale3d(0.2, 0.2, 0.2) translate3d(0, -200%, 0);
+  transition: all 0.3s ease-in;
+}
+
+.shackle {
+  animation: 0.1s ease-in 1s unlock;
+  animation-fill-mode: both;
+}
+
+@keyframes unlock {
+  from {
+    transform: translateY(13%);
+  }
+  to {
+    transform: translateY(0);
   }
 }

@@ -1,6 +1,6 @@
 export const keyColors = [
   ['blue', 'yellow', 'red', 'rebeccapurple'],
-  ['seagreen', 'orange', 'pink', 'black'],
+  ['seagreen', 'darkorange', 'hotpink', 'black'],
   ['crimson', 'lime', 'saddlebrown', 'cyan'],
   ['rainbow']
 ];

@@ -1,0 +1,12 @@
+{
+  "type": "static",
+  "version": 1,
+  "alias": "unlock.cbate.com",
+  "files": [
+    "index.html",
+    "key.css",
+    "manifest.json",
+    "src",
+    "icons"
+  ]
+}

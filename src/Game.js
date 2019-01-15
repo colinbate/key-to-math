@@ -3,6 +3,8 @@ import { Inventory } from './Inventory.js';
 import { Equation } from './Equation.js';
 import { NumberPad } from './NumberPad.js';
 import { Gauge } from './Gauge.js';
+import { Key } from './Key.js'
+import { Lock } from './Lock.js';
 import { Checkmark } from './Checkmark.js';
 import { getNextQuestion } from './questions.js';
 import { STATUS_CORRECT, STATUS_INCORRECT, STATUS_NONE, MAX_KEYS } from './consts.js'
@@ -16,6 +18,8 @@ export class Game extends Component {
       keys: [],
       round: 0,
       progress: 0,
+      msg: '',
+      win: false,
       status: STATUS_NONE,
       currentQuestion: getNextQuestion()
     });
@@ -46,19 +50,48 @@ export class Game extends Component {
     setTimeout(this.proceed, answerInt === currentQuestion.ans ? 2200 : 800);
   }
   proceed() {
-    const { status, progress, keys, round } = this.state;
+    const { status, progress, keys, round, newKey, msg } = this.state;
+    if (newKey && !newKey.hide) {
+      this.setState({
+        newKey: {...newKey, hide: true},
+        keys: [...keys, newKey]
+      });
+      setTimeout(this.proceed, 600);
+      return;
+    }
+    if (msg) {
+      this.setState({
+        msg: ''
+      });
+      return;
+    }
+    if (keys.length === MAX_KEYS) {
+      // Finish round
+      if (round < 2) {
+        this.setState({
+          round: round + 1,
+          keys: [],
+          msg: 'Welcome to Round ' + (round + 2)
+        });
+        setTimeout(this.proceed, 2000);
+      } else {
+        const rainbowKey = {color: 'rainbow'};
+        this.setState({
+          win: true,
+          keys: [rainbowKey, rainbowKey, rainbowKey, rainbowKey],
+          msg: 'Congratulations, completing Round 3 releases the rainbow keys. You have completed "Unlock Math".'
+        })
+      }
+      return;
+    }
     if (status === STATUS_CORRECT) {
       if (progress === 4) {
-        if (keys.length + 1 === MAX_KEYS) {
-          // WIN!?
-          this.setState({
-            round: round + 1
-          });
-        }
+        const latestKey = { color: keyColors[round][keys.length] };
         this.setState({
           progress: 0,
-          keys: [...keys, { color: keyColors[round][keys.length] }]
+          newKey: latestKey
         });
+        setTimeout(this.proceed, 1000);
       }
       this.setState({
         currentQuestion: getNextQuestion(),
@@ -71,17 +104,27 @@ export class Game extends Component {
       });
     }
   }
-  render(_, { answer, keys, currentQuestion, progress, status }) {
+  render(_, { answer, keys, currentQuestion, progress, status, newKey, msg, win }) {
     return html`
       <div class="game relative h-full">
         <${Inventory} keys=${keys} />
-        <${Gauge} progress=${progress} />
-        <div class="z-0 mt-1 relative" onClick=${this.confirm}>
-          ${status === STATUS_CORRECT
-            ? html`<${Checkmark} />`
-            : html`<${Equation} a=${currentQuestion.a} op=${currentQuestion.op} b=${currentQuestion.b} answer=${answer} incorrect=${status === STATUS_INCORRECT} />`}
-        </div>
-        <${NumberPad} onPress=${this.keyPress} />
+        ${!win && html`<${Gauge} progress=${progress} />`}
+        ${msg
+          ? html`
+          <div class="z-0 mt-16 px-16 relative text-center">
+            <h1>${msg}</h1>
+          </div>`
+          : html`
+          <div class="z-0 mt-1 relative no-tapflash" onClick=${this.confirm}>
+            <div class=${'absolute px-16 py-4 w-full ' + (newKey && !newKey.hide ? 'tada tada-show' : 'tada-hide') }><${Key} ...${newKey} /></div>
+            ${status === STATUS_CORRECT
+              ? html`<${Checkmark} />`
+              : html`<${Equation} a=${currentQuestion.a} op=${currentQuestion.op} b=${currentQuestion.b} answer=${answer} incorrect=${status === STATUS_INCORRECT} />`}
+          </div>`}
+        
+        ${!win
+          ? html`<${NumberPad} onPress=${this.keyPress} />`
+          : html`<${Lock} color="rainbow" />`}
         <svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
           <linearGradient id="rainbow" x2="1">
             <stop offset="0" stop-color="red"/>
@@ -90,6 +133,10 @@ export class Game extends Component {
             <stop offset="0.666" stop-color="cyan"/>
             <stop offset="0.833" stop-color="blue"/>
             <stop offset="1" stop-color="#f0f"/>
+          </linearGradient>
+          <linearGradient id="silver-metal" x1="0%" y1="50%" x2="100%" y2="50%" >    
+            <stop offset="0%" stop-color="#d0d0d0"/>
+            <stop offset="100%" stop-color="#e0e0e0"/>
           </linearGradient>
         </svg>
       </div>
